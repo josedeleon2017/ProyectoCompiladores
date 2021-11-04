@@ -1,0 +1,6 @@
+C:\Users\José De León\Desktop\LABS Compis\Proyecto\CONSOLA - YaYacc\bin\Debug\CONSOLA - YaYacc.exe.config
+C:\Users\José De León\Desktop\LABS Compis\Proyecto\CONSOLA - YaYacc\bin\Debug\CONSOLA - YaYacc.exe
+C:\Users\José De León\Desktop\LABS Compis\Proyecto\CONSOLA - YaYacc\bin\Debug\CONSOLA - YaYacc.pdb
+C:\Users\José De León\Desktop\LABS Compis\Proyecto\CONSOLA - YaYacc\obj\Debug\CONSOLA - YaYacc.csproj.CoreCompileInputs.cache
+C:\Users\José De León\Desktop\LABS Compis\Proyecto\CONSOLA - YaYacc\obj\Debug\CONSOLA - YaYacc.exe
+C:\Users\José De León\Desktop\LABS Compis\Proyecto\CONSOLA - YaYacc\obj\Debug\CONSOLA - YaYacc.pdb
