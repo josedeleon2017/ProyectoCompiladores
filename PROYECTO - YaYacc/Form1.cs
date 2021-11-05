@@ -29,6 +29,25 @@ namespace PROYECTO___YaYacc
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Parser p = new Parser();
+
+            if (p.ValidateExpression())
+            {
+                lblResult.Visible = true;
+                lblResult.ForeColor = Color.Green;
+                lblResult.Text = "GRAMÁTICA VÁLIDA";
+            }
+            else
+            {
+                lblResult.Visible = true;
+                lblResult.ForeColor = Color.Red;
+                lblResult.Text = "GRAMÁTICA INVÁLIDA";
+            }
+            lblLog.Visible = true;
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
 
         }
     }
