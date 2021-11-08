@@ -4,3 +4,14 @@ C:\Users\José De León\Desktop\LABS Compis\Proyecto\CONSOLA - YaYacc\bin\Debug\
 C:\Users\José De León\Desktop\LABS Compis\Proyecto\CONSOLA - YaYacc\obj\Debug\CONSOLA - YaYacc.csproj.CoreCompileInputs.cache
 C:\Users\José De León\Desktop\LABS Compis\Proyecto\CONSOLA - YaYacc\obj\Debug\CONSOLA - YaYacc.exe
 C:\Users\José De León\Desktop\LABS Compis\Proyecto\CONSOLA - YaYacc\obj\Debug\CONSOLA - YaYacc.pdb
+E:\U\Compiladores\Lab\2\ProyectoCompiladores\CONSOLA - YaYacc\bin\Debug\CONSOLA - YaYacc.exe.config
+E:\U\Compiladores\Lab\2\ProyectoCompiladores\CONSOLA - YaYacc\bin\Debug\CONSOLA - YaYacc.exe
+E:\U\Compiladores\Lab\2\ProyectoCompiladores\CONSOLA - YaYacc\bin\Debug\CONSOLA - YaYacc.pdb
+E:\U\Compiladores\Lab\2\ProyectoCompiladores\CONSOLA - YaYacc\obj\Debug\CONSOLA - YaYacc.csproj.AssemblyReference.cache
+E:\U\Compiladores\Lab\2\ProyectoCompiladores\CONSOLA - YaYacc\obj\Debug\CONSOLA - YaYacc.csproj.CoreCompileInputs.cache
+E:\U\Compiladores\Lab\2\ProyectoCompiladores\CONSOLA - YaYacc\obj\Debug\CONSOLA - YaYacc.exe
+E:\U\Compiladores\Lab\2\ProyectoCompiladores\CONSOLA - YaYacc\obj\Debug\CONSOLA - YaYacc.pdb
+E:\U\Compiladores\Lab\2\ProyectoCompiladores\CONSOLA - YaYacc\bin\Debug\PROYECTO - YaYacc.exe
+E:\U\Compiladores\Lab\2\ProyectoCompiladores\CONSOLA - YaYacc\bin\Debug\PROYECTO - YaYacc.pdb
+E:\U\Compiladores\Lab\2\ProyectoCompiladores\CONSOLA - YaYacc\bin\Debug\PROYECTO - YaYacc.exe.config
+E:\U\Compiladores\Lab\2\ProyectoCompiladores\CONSOLA - YaYacc\obj\Debug\CONSOLA - YaYacc.csproj.CopyComplete

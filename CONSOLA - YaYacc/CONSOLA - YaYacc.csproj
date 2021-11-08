@@ -49,5 +49,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\PROYECTO - YaYacc\PROYECTO - YaYacc.csproj">
+      <Project>{1cc9993a-97e2-4f7a-87b7-a0cef62e79bc}</Project>
+      <Name>PROYECTO - YaYacc</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

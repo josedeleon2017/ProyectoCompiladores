@@ -8,3 +8,13 @@ C:\Users\José De León\Desktop\LABS Compis\Proyecto\PROYECTO - YaYacc\obj\Debug
 C:\Users\José De León\Desktop\LABS Compis\Proyecto\PROYECTO - YaYacc\obj\Debug\PROYECTO - YaYacc.csproj.CoreCompileInputs.cache
 C:\Users\José De León\Desktop\LABS Compis\Proyecto\PROYECTO - YaYacc\obj\Debug\PROYECTO - YaYacc.exe
 C:\Users\José De León\Desktop\LABS Compis\Proyecto\PROYECTO - YaYacc\obj\Debug\PROYECTO - YaYacc.pdb
+E:\U\Compiladores\Lab\2\ProyectoCompiladores\PROYECTO - YaYacc\bin\Debug\PROYECTO - YaYacc.exe.config
+E:\U\Compiladores\Lab\2\ProyectoCompiladores\PROYECTO - YaYacc\bin\Debug\PROYECTO - YaYacc.exe
+E:\U\Compiladores\Lab\2\ProyectoCompiladores\PROYECTO - YaYacc\bin\Debug\PROYECTO - YaYacc.pdb
+E:\U\Compiladores\Lab\2\ProyectoCompiladores\PROYECTO - YaYacc\obj\Debug\PROYECTO - YaYacc.csproj.AssemblyReference.cache
+E:\U\Compiladores\Lab\2\ProyectoCompiladores\PROYECTO - YaYacc\obj\Debug\PROYECTO___YaYacc.Form1.resources
+E:\U\Compiladores\Lab\2\ProyectoCompiladores\PROYECTO - YaYacc\obj\Debug\PROYECTO___YaYacc.Properties.Resources.resources
+E:\U\Compiladores\Lab\2\ProyectoCompiladores\PROYECTO - YaYacc\obj\Debug\PROYECTO - YaYacc.csproj.GenerateResource.cache
+E:\U\Compiladores\Lab\2\ProyectoCompiladores\PROYECTO - YaYacc\obj\Debug\PROYECTO - YaYacc.csproj.CoreCompileInputs.cache
+E:\U\Compiladores\Lab\2\ProyectoCompiladores\PROYECTO - YaYacc\obj\Debug\PROYECTO - YaYacc.exe
+E:\U\Compiladores\Lab\2\ProyectoCompiladores\PROYECTO - YaYacc\obj\Debug\PROYECTO - YaYacc.pdb
