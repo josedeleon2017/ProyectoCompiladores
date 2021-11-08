@@ -15,3 +15,14 @@ E:\U\Compiladores\Lab\2\ProyectoCompiladores\CONSOLA - YaYacc\bin\Debug\PROYECTO
 E:\U\Compiladores\Lab\2\ProyectoCompiladores\CONSOLA - YaYacc\bin\Debug\PROYECTO - YaYacc.pdb
 E:\U\Compiladores\Lab\2\ProyectoCompiladores\CONSOLA - YaYacc\bin\Debug\PROYECTO - YaYacc.exe.config
 E:\U\Compiladores\Lab\2\ProyectoCompiladores\CONSOLA - YaYacc\obj\Debug\CONSOLA - YaYacc.csproj.CopyComplete
+C:\Users\kevin\Desktop\ProyectoCompiladores\CONSOLA - YaYacc\bin\Debug\CONSOLA - YaYacc.exe.config
+C:\Users\kevin\Desktop\ProyectoCompiladores\CONSOLA - YaYacc\bin\Debug\CONSOLA - YaYacc.exe
+C:\Users\kevin\Desktop\ProyectoCompiladores\CONSOLA - YaYacc\bin\Debug\CONSOLA - YaYacc.pdb
+C:\Users\kevin\Desktop\ProyectoCompiladores\CONSOLA - YaYacc\bin\Debug\PROYECTO - YaYacc.exe
+C:\Users\kevin\Desktop\ProyectoCompiladores\CONSOLA - YaYacc\bin\Debug\PROYECTO - YaYacc.pdb
+C:\Users\kevin\Desktop\ProyectoCompiladores\CONSOLA - YaYacc\bin\Debug\PROYECTO - YaYacc.exe.config
+C:\Users\kevin\Desktop\ProyectoCompiladores\CONSOLA - YaYacc\obj\Debug\CONSOLA - YaYacc.csprojAssemblyReference.cache
+C:\Users\kevin\Desktop\ProyectoCompiladores\CONSOLA - YaYacc\obj\Debug\CONSOLA - YaYacc.csproj.CoreCompileInputs.cache
+C:\Users\kevin\Desktop\ProyectoCompiladores\CONSOLA - YaYacc\obj\Debug\CONSOLA - YaYacc.csproj.CopyComplete
+C:\Users\kevin\Desktop\ProyectoCompiladores\CONSOLA - YaYacc\obj\Debug\CONSOLA - YaYacc.exe
+C:\Users\kevin\Desktop\ProyectoCompiladores\CONSOLA - YaYacc\obj\Debug\CONSOLA - YaYacc.pdb

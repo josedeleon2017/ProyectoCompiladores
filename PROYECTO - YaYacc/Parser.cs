@@ -153,7 +153,7 @@ namespace PROYECTO___YaYacc
              * Cola temporal para pruebas, la gramatica 1 deberia ser reconocida en este orden de tokens
              * 
              */
-            Tokens.Enqueue("T_NONT");
+            /*Tokens.Enqueue("T_NONT");
             Tokens.Enqueue("T_SEPARATOR");
             Tokens.Enqueue("T_NONT");
             Tokens.Enqueue("T_ENDLINE");
@@ -166,9 +166,21 @@ namespace PROYECTO___YaYacc
             Tokens.Enqueue("T_OR");
             Tokens.Enqueue("T_TERMINAL");
             Tokens.Enqueue("T_ENDLINE");
-            Tokens.Enqueue("T_EOF");
+            Tokens.Enqueue("T_EOF");*/
 
             /* Initiate stacks */
+
+
+            string regexp = "S’ : S ; S : A B ; A : 'the' ; B : C 'cat' ; C : 'happy' ; C : 'sad' ;";
+            Scanner scanner = new Scanner(regexp);
+            Token nextToken;
+
+            do
+            {
+                nextToken = scanner.GetToken();
+                Tokens.Enqueue(nextToken.Tag.ToString());
+            } while (nextToken.Tag != TokenType.EOF);
+
             PrincipalStack.Push("#");
             StatesStack.Push("0");
             Log = "";

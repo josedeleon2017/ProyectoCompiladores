@@ -30,11 +30,6 @@ namespace PROYECTO___YaYacc
                 {
                     case 0:
                         //whitespace removal
-                        while (char.IsWhiteSpace(peek))
-                        {
-                            peek = _regexp[_index];
-                            _index++;
-                        }
                         switch (peek)
                         {
                             case (char)TokenType.T_ENDLINE:
@@ -47,44 +42,46 @@ namespace PROYECTO___YaYacc
                                 result.Value = peek.ToString();
                                 break;
                             default:
-                                int i = 0;
-                                tokenFound = true;
-                                if (peek == '\'')
-                                {
-                                    _index++;
-                                    peek = _regexp[_index];
-                                    result.Tag = TokenType.T_TERMINAL;
-                                    do 
-                                    {
-                                        i++;
-                                        result.Value = result.Value + peek.ToString();
-                                        peek = _regexp[_index + i];
-                                    } while (peek != '\'') ;
-                                    if (i > 0)
-                                    {
-                                        _index += i - 1;
-                                    }
-                                    _index++;
-                                    peek = _regexp[_index];
-                                }
-                                else
-                                {
-                                    result.Tag = TokenType.T_NONT;
-                                    do
-                                    {
-                                        i++;
-                                        result.Value = result.Value + peek.ToString();
-                                        peek = _regexp[_index + i];
-                                    } while (!char.IsWhiteSpace(peek));
-                                    if (i > 0)
-                                    {
-                                        _index += i - 1;
-                                    }
+                                if(!char.IsWhiteSpace(peek))
+                                { 
+                                        int i = 0;
+                                        tokenFound = true;
+                                        if (peek == '\'')
+                                        {
+                                            _index++;
+                                            peek = _regexp[_index];
+                                            result.Tag = TokenType.T_TERMINAL;
+                                            do
+                                            {
+                                                i++;
+                                                result.Value = result.Value + peek.ToString();
+                                                peek = _regexp[_index + i];
+                                            } while (peek != '\'');
+                                            if (i > 0)
+                                            {
+                                                _index += i - 1;
+                                            }
+                                            _index++;
+                                        }
+                                        else
+                                        {
+                                            result.Tag = TokenType.T_NONT;
+                                            do
+                                            {
+                                                i++;
+                                                result.Value = result.Value + peek.ToString();
+                                                peek = _regexp[_index + i];
+                                            } while (!char.IsWhiteSpace(peek));
+                                            if (i > 0)
+                                            {
+                                                _index += i - 1;
+                                            }
 
+                                        }
                                 }
                                 break;
                         }// SWITCH - peek
-
+                        
                         break; //Case 0
 
                     default:
