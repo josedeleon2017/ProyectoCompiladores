@@ -196,7 +196,7 @@ namespace PROYECTO___YaYacc
                 9.RULE-> "T_NONT"
             */
             GrammarRules.Add(new List<string>() { "E'", "S'" });
-            GrammarRules.Add(new List<string>() { "S'", "S", "T_ENDLINE", "T_NEWLINE", "S'" });
+            GrammarRules.Add(new List<string>() { "S'", "S", "T_ENDLINE", "S'" });
             GrammarRules.Add(new List<string>() { "S'", "S", "T_ENDLINE"});
             GrammarRules.Add(new List<string>() { "S", "T_NONT", "T_SEPARATOR", "RULE" });
             GrammarRules.Add(new List<string>() { "S", "T_NONT", "T_SEPARATOR", "RULE", "T_OR", "D" });
@@ -225,8 +225,10 @@ namespace PROYECTO___YaYacc
             LRTable.Add("3,T_SEPARATOR", "S5");
 
             //state 4
-            LRTable.Add("4,T_NEWLINE", "S6");
+            LRTable.Add("4,T_NONT", "S3");
             LRTable.Add("4,T_EOF", "R2");
+            LRTable.Add("4,S'", "6");
+            LRTable.Add("4,S", "2");
 
             //state 5
             LRTable.Add("5,T_NONT", "S9");
@@ -234,16 +236,15 @@ namespace PROYECTO___YaYacc
             LRTable.Add("5,RULE", "7");
 
             //state 6
-            LRTable.Add("6,T_NONT", "S3");
-            LRTable.Add("6,S'", "10");
-            LRTable.Add("6,S", "2");
+            LRTable.Add("6,T_EOF", "R1");
+
 
             //state 7
             LRTable.Add("7,T_ENDLINE", "R3");
             LRTable.Add("7,T_NONT", "S9");
-            LRTable.Add("7,T_OR", "S11");
+            LRTable.Add("7,T_OR", "S10");
             LRTable.Add("7,T_TERMINAL", "S8");
-            LRTable.Add("7,RULE", "12");
+            LRTable.Add("7,RULE", "11");
 
             //state 8
             LRTable.Add("8,T_ENDLINE", "R8");
@@ -258,39 +259,38 @@ namespace PROYECTO___YaYacc
             LRTable.Add("9,T_TERMINAL", "R9");
 
             //state 10
-            LRTable.Add("10,T_EOF", "R1");
+            LRTable.Add("10,T_NONT", "S9");
+            LRTable.Add("10,T_TERMINAL", "S8");
+            LRTable.Add("10,D", "12");
+            LRTable.Add("10,RULE", "13");
 
             //state 11
             LRTable.Add("11,T_NONT", "S9");
             LRTable.Add("11,T_TERMINAL", "S8");
-            LRTable.Add("11,D", "13");
-            LRTable.Add("11,RULE", "14");
+            LRTable.Add("11,RULE", "11");
+            LRTable.Add("11,T_ENDLINE", "R7");
+            LRTable.Add("11,T_OR", "R7");
 
             //state 12
-            LRTable.Add("12,T_ENDLINE", "R7");
-            LRTable.Add("12,T_NONT", "S9");
-            LRTable.Add("12,T_OR", "R7");
-            LRTable.Add("12,T_TERMINAL", "S8");
-            LRTable.Add("12,RULE", "12");
+            LRTable.Add("12,T_ENDLINE", "R4");
+
 
             //state 13
-            LRTable.Add("13,T_ENDLINE", "R4");
+            LRTable.Add("13,T_ENDLINE", "R6");
+            LRTable.Add("13,T_NONT", "S9");
+            LRTable.Add("13,T_OR", "S14");
+            LRTable.Add("13,T_TERMINAL", "S8");
+            LRTable.Add("13,RULE", "11");
+
 
             //state 14
-            LRTable.Add("14,T_ENDLINE", "R6");
             LRTable.Add("14,T_NONT", "S9");
-            LRTable.Add("14,T_OR", "S15");
             LRTable.Add("14,T_TERMINAL", "S8");
-            LRTable.Add("14,RULE", "12");
+            LRTable.Add("14,D", "15");
+            LRTable.Add("14,RULE", "13");
 
             //state 15
-            LRTable.Add("15,T_NONT", "S9");
-            LRTable.Add("15,T_TERMINAL", "S8");
-            LRTable.Add("15,D", "16");
-            LRTable.Add("15,RULE", "14");
-
-            //state 16
-            LRTable.Add("16,T_ENDLINE", "R5");
+            LRTable.Add("15,T_ENDLINE", "R5");
         }
     }
 }

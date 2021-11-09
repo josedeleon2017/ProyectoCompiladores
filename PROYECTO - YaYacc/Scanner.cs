@@ -35,7 +35,7 @@ namespace PROYECTO___YaYacc
                         switch (peek)
                         {
                             case (char)TokenType.T_ENDLINE:
-                            case (char)TokenType.T_NEWLINE:
+                            //case (char)TokenType.T_NEWLINE:
                             case (char)TokenType.T_OR:
                             case (char)TokenType.T_SEPARATOR:
                             case (char)TokenType.T_EOF:

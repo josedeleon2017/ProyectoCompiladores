@@ -11,7 +11,7 @@ namespace PROYECTO___YaYacc
         T_NONT = 'N',
         T_TERMINAL = 'T',
         T_SEPARATOR = ':',
-        T_NEWLINE = '\n',
+        //T_NEWLINE = '\n',
         T_OR = '|',
         T_ENDLINE = ';',
         T_NONDEFINE = (char)1,
