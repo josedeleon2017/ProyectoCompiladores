@@ -171,7 +171,9 @@ namespace PROYECTO___YaYacc
             /* Initiate stacks */
 
 
-            string regexp = "S’ : S ; S : A B ; A : 'the' ; B : C 'cat' ; C : 'happy' ; C : 'sad' ;";
+            string regexp = "S' : S ; \n" +
+                            "S : '0' S '1'" +
+                            "| '01' ;";
             Scanner scanner = new Scanner(regexp);
             Token nextToken;
 
@@ -179,7 +181,7 @@ namespace PROYECTO___YaYacc
             {
                 nextToken = scanner.GetToken();
                 Tokens.Enqueue(nextToken.Tag.ToString());
-            } while (nextToken.Tag != TokenType.EOF);
+            } while (nextToken.Tag != TokenType.T_EOF);
 
             PrincipalStack.Push("#");
             StatesStack.Push("0");

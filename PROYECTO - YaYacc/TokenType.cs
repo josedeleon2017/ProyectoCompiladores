@@ -14,6 +14,7 @@ namespace PROYECTO___YaYacc
         T_NEWLINE = '\n',
         T_OR = '|',
         T_ENDLINE = ';',
-        EOF = (char)0
+        T_NONDEFINE = (char)1,
+        T_EOF = (char)0
     }
 }

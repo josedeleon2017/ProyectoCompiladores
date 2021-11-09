@@ -15,7 +15,7 @@ namespace PROYECTO___YaYacc
         private int _state = 0;
         public Scanner(string regexp)
         {
-            _regexp = regexp + (char)TokenType.EOF;
+            _regexp = regexp + (char)TokenType.T_EOF;
             _index = 0;
             _state = 0;
         }
@@ -23,6 +23,8 @@ namespace PROYECTO___YaYacc
         {
             Token result = new Token() { Value = "" };
             bool tokenFound = false;
+            MatchCollection match;
+            Regex regex;
             while (!tokenFound)
             {
                 char peek = _regexp[_index];
@@ -36,7 +38,7 @@ namespace PROYECTO___YaYacc
                             case (char)TokenType.T_NEWLINE:
                             case (char)TokenType.T_OR:
                             case (char)TokenType.T_SEPARATOR:
-                            case (char)TokenType.EOF:
+                            case (char)TokenType.T_EOF:
                                 tokenFound = true;
                                 result.Tag = (TokenType)peek;
                                 result.Value = peek.ToString();
@@ -44,40 +46,80 @@ namespace PROYECTO___YaYacc
                             default:
                                 if(!char.IsWhiteSpace(peek))
                                 { 
-                                        int i = 0;
-                                        tokenFound = true;
-                                        if (peek == '\'')
+
+                                    int i = 0;
+                                    tokenFound = true;
+                                   
+                                    if (peek == '\'')
+                                    {
+                                        _index++;
+                                        peek = _regexp[_index];                                     
+                                        do
                                         {
-                                            _index++;
-                                            peek = _regexp[_index];
-                                            result.Tag = TokenType.T_TERMINAL;
-                                            do
+                                            i++;
+                                            if (peek == '\\')
                                             {
-                                                i++;
                                                 result.Value = result.Value + peek.ToString();
-                                                peek = _regexp[_index + i];
-                                            } while (peek != '\'');
-                                            if (i > 0)
-                                            {
-                                                _index += i - 1;
+                                                _index++;
+                                                peek = _regexp[_index];
                                             }
-                                            _index++;
+                                            result.Value = result.Value + peek.ToString();
+                                            peek = _regexp[_index + i];
+
+                                        } while (peek != '\'');
+
+                                        if (i > 0)
+                                        {
+                                            _index += i - 1;
+                                        }
+
+                                        regex = new Regex(@"[\da-zA-Z \n\t\\'!\""#%&()\*\+,\-\./:;<=>?[\]^_{|}~]{1}");
+                                        match = regex.Matches(result.Value);
+                                        if (match.Count <= 2 && match.Count == result.Value.Length)
+                                        {
+                                            result.Tag = TokenType.T_TERMINAL;
                                         }
                                         else
                                         {
-                                            result.Tag = TokenType.T_NONT;
-                                            do
+                                            result.Tag = TokenType.T_NONDEFINE;
+                                        }
+
+                                        _index++;
+                                    }
+                                    else
+                                    {
+                                        result.Tag = TokenType.T_NONT;
+                                        do
+                                        {
+                                            i++;
+                                            result.Value = result.Value + peek.ToString();
+                                            peek = _regexp[_index + i];
+                                        } while (!char.IsWhiteSpace(peek));
+                                        if (i > 0)
+                                        {
+                                            _index += i - 1;
+                                        }
+                                        regex = new Regex(@"[a-zA-Z][\w\d_']*");
+                                        match = regex.Matches(result.Value);
+
+                                        if (match.Count == 1 )
+                                        {
+                                            if (match[0].ToString() == result.Value)
                                             {
-                                                i++;
-                                                result.Value = result.Value + peek.ToString();
-                                                peek = _regexp[_index + i];
-                                            } while (!char.IsWhiteSpace(peek));
-                                            if (i > 0)
+                                                result.Tag = TokenType.T_TERMINAL;
+                                            }
+                                            else
                                             {
-                                                _index += i - 1;
+                                                result.Tag = TokenType.T_NONDEFINE;
                                             }
 
                                         }
+                                        else
+                                        {
+                                            result.Tag = TokenType.T_NONDEFINE;
+                                        }
+
+                                    }
                                 }
                                 break;
                         }// SWITCH - peek
