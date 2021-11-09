@@ -33,6 +33,7 @@
             this.lblResult = new System.Windows.Forms.Label();
             this.lblLog = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.lblRuta = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -72,10 +73,10 @@
             // lblLog
             // 
             this.lblLog.AutoSize = true;
-            this.lblLog.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLog.Location = new System.Drawing.Point(325, 307);
+            this.lblLog.Font = new System.Drawing.Font("Palatino Linotype", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLog.Location = new System.Drawing.Point(304, 302);
             this.lblLog.Name = "lblLog";
-            this.lblLog.Size = new System.Drawing.Size(188, 27);
+            this.lblLog.Size = new System.Drawing.Size(226, 32);
             this.lblLog.TabIndex = 3;
             this.lblLog.Text = "Archivo Log creado";
             this.lblLog.Visible = false;
@@ -91,12 +92,24 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // lblRuta
+            // 
+            this.lblRuta.AutoSize = true;
+            this.lblRuta.Font = new System.Drawing.Font("Palatino Linotype", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblRuta.Location = new System.Drawing.Point(301, 334);
+            this.lblRuta.Name = "lblRuta";
+            this.lblRuta.Size = new System.Drawing.Size(229, 19);
+            this.lblRuta.TabIndex = 5;
+            this.lblRuta.Text = "Ruta: PROYECTO - YaYacc\\log.txt";
+            this.lblRuta.Visible = false;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Snow;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblRuta);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lblLog);
             this.Controls.Add(this.lblResult);
@@ -117,6 +130,7 @@
         private System.Windows.Forms.Label lblResult;
         private System.Windows.Forms.Label lblLog;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label lblRuta;
     }
 }
 

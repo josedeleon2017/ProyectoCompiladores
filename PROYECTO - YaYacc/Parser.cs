@@ -147,7 +147,7 @@ namespace PROYECTO___YaYacc
             }
         }
 
-        public Parser()
+        public Parser(string regexp)
         {
             /*
              * Cola temporal para pruebas, la gramatica 1 deberia ser reconocida en este orden de tokens
@@ -169,11 +169,6 @@ namespace PROYECTO___YaYacc
             Tokens.Enqueue("T_EOF");*/
 
             /* Initiate stacks */
-
-
-            string regexp = "S' : S ; \n" +
-                            "S : '0' S '1'" +
-                            "| '01' ;";
             Scanner scanner = new Scanner(regexp);
             Token nextToken;
 

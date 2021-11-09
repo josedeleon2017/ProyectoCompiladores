@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,21 +30,44 @@ namespace PROYECTO___YaYacc
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Parser p = new Parser();
 
-            if (p.ValidateExpression())
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "Gramática YaYacc | *.y";
+            dialog.Multiselect = false;
+            if (dialog.ShowDialog() == DialogResult.OK)
             {
-                lblResult.Visible = true;
-                lblResult.ForeColor = Color.Green;
-                lblResult.Text = "GRAMÁTICA VÁLIDA";
+                String path = dialog.FileName; 
+                var str = File.ReadAllText(path);
+                try
+                {
+                    DialogResult result = MessageBox.Show("Archivo cargado exitosamente!!!", "Resultado archivo");
+
+                    Parser p = new Parser(str);
+
+                    if (p.ValidateExpression())
+                    {
+                        lblResult.Visible = true;
+                        lblResult.ForeColor = Color.Green;
+                        lblResult.Text = "GRAMÁTICA VÁLIDA";
+                    }
+                    else
+                    {
+                        lblResult.Visible = true;
+                        lblResult.ForeColor = Color.Red;
+                        lblResult.Text = "GRAMÁTICA INVÁLIDA";
+                    }
+                    lblRuta.Visible = true;
+                    lblLog.Visible = true;
+
+                }
+                catch
+                {
+                    DialogResult result = MessageBox.Show("Ha ocurrido un error, compruebe el formato del archivo", "Error");
+                }
+
             }
-            else
-            {
-                lblResult.Visible = true;
-                lblResult.ForeColor = Color.Red;
-                lblResult.Text = "GRAMÁTICA INVÁLIDA";
-            }
-            lblLog.Visible = true;
+
+            
         }
 
         private void label3_Click(object sender, EventArgs e)

@@ -75,7 +75,7 @@ namespace PROYECTO___YaYacc
 
                                         regex = new Regex(@"[\da-zA-Z \n\t\\'!\""#%&()\*\+,\-\./:;<=>?[\]^_{|}~]{1}");
                                         match = regex.Matches(result.Value);
-                                        if (match.Count <= 2 && match.Count == result.Value.Length)
+                                        if (match.Count <= 6 && match.Count == result.Value.Length)
                                         {
                                             result.Tag = TokenType.T_TERMINAL;
                                         }
@@ -106,7 +106,7 @@ namespace PROYECTO___YaYacc
                                         {
                                             if (match[0].ToString() == result.Value)
                                             {
-                                                result.Tag = TokenType.T_TERMINAL;
+                                                result.Tag = TokenType.T_NONT;
                                             }
                                             else
                                             {
