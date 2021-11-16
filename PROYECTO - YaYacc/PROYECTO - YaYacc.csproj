@@ -58,6 +58,10 @@
     <Compile Include="Scanner.cs" />
     <Compile Include="Token.cs" />
     <Compile Include="TokenType.cs" />
+    <Compile Include="YaYacc\Grammar.cs" />
+    <Compile Include="YaYacc\LALR.cs" />
+    <Compile Include="YaYacc\Rule.cs" />
+    <Compile Include="YaYacc\State.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
