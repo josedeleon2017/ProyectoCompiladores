@@ -12,6 +12,11 @@ namespace PROYECTO___YaYacc.YaYacc
         public List<Rule> Items { get; set; }
         public bool IsComplete { get; set; }
 
+        public object Clone()
+        {
+            return MemberwiseClone();
+        }
+
         public State()
         {
             Id = -1;
