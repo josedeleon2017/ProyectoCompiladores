@@ -66,6 +66,9 @@ namespace PROYECTO___YaYacc.YaYacc
                             for (int k = 0; k < rulesToAdd.Count; k++)
                             {
                                 Rule ruleFormat = AddPoint(rulesToAdd[k]);
+
+                                //Sacar el LookAHead de las reglas generadas
+
                                 currentNewState.Items.Add(ruleFormat);
                             }
                         }
@@ -92,6 +95,8 @@ namespace PROYECTO___YaYacc.YaYacc
                 }
                 _LALR[currentStatePosition].IsComplete = true;
             }
+
+            //Calcular los reduces y ahi termina
         }
 
 
@@ -122,6 +127,8 @@ namespace PROYECTO___YaYacc.YaYacc
             //Agrega la primera regla con punto al inicio
             Rule InitialRule = Grammar.InitialRule;
             S0.Items.Add(AddPoint(InitialRule));
+
+            //Sacar el LookAHead -> $
 
             //Valida si el punto genera mas reglas
             for (int i = 0; i < S0.Items.Count; i++)
