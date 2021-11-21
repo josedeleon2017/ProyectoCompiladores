@@ -28,6 +28,8 @@ namespace CONSOLA___YaYacc
             Rule r5 = new Rule() { Id = "F", Elements = new List<string>() { "(", "S", ")" } };
             Rule r6 = new Rule() { Id = "F", Elements = new List<string>() { "num" } };
 
+            Grammar objGramar = new Grammar("C:\\Users\\kevin\\Desktop\\ProyectoCompiladores\\PRUEBAS - YaYacc\\grammar4.y");
+
 
 
             Grammar g = new Grammar() { InitialRule = r0, DictRules = new List<Rule>() { r1, r2, r3, r4, r5, r6 } };

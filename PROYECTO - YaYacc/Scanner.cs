@@ -134,5 +134,79 @@ namespace PROYECTO___YaYacc
             return result;
 
         } //GetToken
+
+        public Token identifyToken(string regexp)
+        {
+            _regexp = regexp + (char)TokenType.T_EOF;
+            Token result = new Token() { Value = "" };
+            MatchCollection match;
+            Regex regex;
+
+
+            char peek = _regexp[_index];
+
+            if (peek == '\'') /*Valor terminal*/
+            {
+                _index++;
+                for (int i = 0; i < _regexp.Length; i++)
+                {
+
+                    if (peek == '\\')
+                    {
+                        result.Value = result.Value + peek.ToString();
+                        _index++;
+                        peek = _regexp[_index];
+                    }
+
+                    result.Value = result.Value + peek.ToString();
+                    peek = _regexp[i];
+                }
+                result.Value = result.Value.Trim('\'');
+                regex = new Regex(@"[\da-zA-Z \n\t\\\'\!\""\#\%\&\(\)\*\+\,\-\.\/\:\;\<\=\>\?\[\]\^\{\|\}\~_]{1}");
+                match = regex.Matches(result.Value);
+                if (match.Count <= 6 && match.Count == result.Value.Length)
+                {
+                    result.Tag = TokenType.T_TERMINAL;
+                }
+                else
+                {
+                    result.Tag = TokenType.T_NONDEFINE;
+                }
+            }
+            else/*Valor no Terminal*/
+            {
+                result.Tag = TokenType.T_NONT;
+                for (int j = 1; j < _regexp.Length; j++)
+                {
+                    result.Value = result.Value + peek.ToString();
+                    peek = _regexp[j];
+                }
+                regex = new Regex(@"[a-zA-Z][\w\d_']*");
+                match = regex.Matches(result.Value);
+
+                if (match.Count == 1)
+                {
+                    if (match[0].ToString() == result.Value)
+                    {
+                        result.Tag = TokenType.T_NONT;
+                    }
+                    else
+                    {
+                        result.Tag = TokenType.T_NONDEFINE;
+                    }
+
+                }
+                else
+                {
+                    result.Tag = TokenType.T_NONDEFINE;
+                }
+
+            }
+            _index = 0;
+            return result;
+
+        }
+
+
     }
 }

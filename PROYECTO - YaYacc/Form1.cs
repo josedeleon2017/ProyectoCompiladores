@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PROYECTO___YaYacc.YaYacc;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -49,6 +50,7 @@ namespace PROYECTO___YaYacc
                         lblResult.Visible = true;
                         lblResult.ForeColor = Color.Green;
                         lblResult.Text = "GRAMÁTICA VÁLIDA";
+                        Grammar objGrammar = new Grammar(path);
                     }
                     else
                     {
