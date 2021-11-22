@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,6 +22,8 @@ namespace PROYECTO___YaYacc.YaYacc
         private Stack<string> StatesStack = new Stack<string>();
         private Stack<string> PrincipalStack = new Stack<string>();
         private List<List<string>> GrammarRules = new List<List<string>>();
+        string Log;
+        bool Result;
 
         public bool ValidateExpression(Queue<string> Tokens)
         {
@@ -40,9 +43,12 @@ namespace PROYECTO___YaYacc.YaYacc
 
                         //Obtiene el nuevo token
                         CurrentToken = Tokens.Dequeue();
+
+                        SaveStep(action);
                     }
                     else if (action[0] == 'R')
                     {
+                        SaveStep(action);
                         List<string> rule = GetRule(action.Substring(1));
                         for (int i = rule.Count - 1; i > 0; i--)
                         {
@@ -57,13 +63,20 @@ namespace PROYECTO___YaYacc.YaYacc
                     }
                     else if (action == "ACCEPTED")
                     {
+                        SaveStep(action);
+                        Result = true;
+                        CreateLog();
                         return true;
                     }
                 }
+                Result = false;
+                CreateLog();
                 return false;
             }
             catch (Exception)
             {
+                Result = false;
+                CreateLog();
                 return false;
             }
         }
@@ -89,6 +102,60 @@ namespace PROYECTO___YaYacc.YaYacc
             PrincipalStack.Push("#");
             StatesStack.Push("0");
         }
+
+        private void SaveStep(string action)
+        {
+            string st_stack = "";
+            string[] states = new string[StatesStack.Count];
+            StatesStack.CopyTo(states, 0);
+            for (int i = states.Length - 1; i >= 0; i--)
+            {
+                st_stack += states[i].PadRight(3, ' ');
+            }
+
+            string p_stack = "";
+            string[] tokens = new string[PrincipalStack.Count];
+            PrincipalStack.CopyTo(tokens, 0);
+            for (int i = tokens.Length - 1; i >= 0; i--)
+            {
+                p_stack += tokens[i].PadRight(12, ' ');
+            }
+            Log += st_stack.PadRight(100, ' ') + "|" + p_stack.PadRight(155, ' ') + "|" + action.PadRight(8, ' ') + "\n";
+        }
+
+        private void CreateLog()
+        {
+            var CurrentDirectory = Directory.GetCurrentDirectory();
+            int posBinDirectory = CurrentDirectory.IndexOf("bin", 0);
+            string RelativeDirectory = CurrentDirectory.Substring(0, posBinDirectory);
+
+            string path = $"{RelativeDirectory}\\Logs\\ExpressionLog.txt";
+            using (StreamWriter sw = File.CreateText(path))
+            {
+                //Print header
+                sw.WriteLine("**** PROYECTO YAYACC ****");
+                sw.WriteLine("- Jocelyn de León");
+                sw.WriteLine("- Kevin Romero");
+                sw.WriteLine("- José De León");
+                if (Result)
+                {
+                    sw.WriteLine("\nEXPRESIÓN VÁLIDA");
+                }
+                else
+                {
+                    sw.WriteLine("\nEXPRESIÓN INVÁLIDA");
+                }
+                sw.WriteLine($"{DateTime.Now}\n");
+
+
+                //Print table
+                sw.WriteLine("".PadRight(265, '-'));
+                sw.WriteLine("STATES".PadRight(100, ' ') + "|" + "STACK".PadRight(155, ' ') + "|" + "ACTION".PadRight(8, ' '));
+                sw.WriteLine("".PadRight(265, '-'));
+                sw.WriteLine(Log);
+            }
+        }
+
         public void GenerateTable()
         {
             GenerateInitialState();

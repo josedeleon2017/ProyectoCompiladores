@@ -53,12 +53,6 @@ namespace PROYECTO___YaYacc
                         lblResult.Text = "GRAMÁTICA VÁLIDA";
                         Grammar objGrammar = new Grammar(path);
 
-
-                        ///Crear el Json
-
-
-
-                        this.Hide();
                         Input f = new Input(objGrammar);
                         f.Show();
                     }

@@ -36,6 +36,8 @@
             this.lblLog = new System.Windows.Forms.Label();
             this.lblResult2 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.label4 = new System.Windows.Forms.Label();
+            this.listBox1 = new System.Windows.Forms.ListBox();
             this.SuspendLayout();
             // 
             // label2
@@ -61,10 +63,10 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Palatino Linotype", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.Location = new System.Drawing.Point(183, 191);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(503, 27);
+            this.label3.Size = new System.Drawing.Size(490, 27);
             this.label3.TabIndex = 4;
             this.label3.Text = "Ingrese cada Token separado por un espacio en blanco";
             // 
@@ -79,11 +81,11 @@
             // 
             this.lblRuta.AutoSize = true;
             this.lblRuta.Font = new System.Drawing.Font("Palatino Linotype", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRuta.Location = new System.Drawing.Point(319, 342);
+            this.lblRuta.Location = new System.Drawing.Point(262, 342);
             this.lblRuta.Name = "lblRuta";
-            this.lblRuta.Size = new System.Drawing.Size(229, 19);
+            this.lblRuta.Size = new System.Drawing.Size(343, 19);
             this.lblRuta.TabIndex = 7;
-            this.lblRuta.Text = "Ruta: PROYECTO - YaYacc\\log.txt";
+            this.lblRuta.Text = "Ruta: PROYECTO - YaYacc\\Logs\\ExpressionLog.txt";
             this.lblRuta.Visible = false;
             // 
             // lblLog
@@ -102,7 +104,7 @@
             this.lblResult2.AutoSize = true;
             this.lblResult2.Font = new System.Drawing.Font("Palatino Linotype", 22.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblResult2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.lblResult2.Location = new System.Drawing.Point(299, 244);
+            this.lblResult2.Location = new System.Drawing.Point(244, 258);
             this.lblResult2.Name = "lblResult2";
             this.lblResult2.Size = new System.Drawing.Size(37, 51);
             this.lblResult2.TabIndex = 8;
@@ -120,11 +122,34 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Palatino Linotype", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(805, 39);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(103, 32);
+            this.label4.TabIndex = 10;
+            this.label4.Text = "Tokens:";
+            // 
+            // listBox1
+            // 
+            this.listBox1.Font = new System.Drawing.Font("Palatino Linotype", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 23;
+            this.listBox1.Location = new System.Drawing.Point(841, 85);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(197, 257);
+            this.listBox1.TabIndex = 11;
+            this.listBox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+            // 
             // Input
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1135, 450);
+            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.lblResult2);
             this.Controls.Add(this.lblRuta);
@@ -135,6 +160,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Input";
             this.Text = "Validación de palabras";
+            this.Load += new System.EventHandler(this.Input_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -150,5 +176,7 @@
         private System.Windows.Forms.Label lblLog;
         private System.Windows.Forms.Label lblResult2;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ListBox listBox1;
     }
 }

@@ -22,6 +22,8 @@ namespace PROYECTO___YaYacc
 
             parser = new LALR(grammar);
             parser.GenerateTable();
+
+            listBox1.DataSource = gInput.Terminals;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -32,7 +34,7 @@ namespace PROYECTO___YaYacc
             Queue<string> tokens = new Queue<string>();
             for (int i = 0; i < t.Length; i++)
             {
-                tokens.Enqueue(t[i]);
+                tokens.Enqueue(t[i].Trim());
             }
             tokens.Enqueue("$");
             bool result = parser.ValidateExpression(tokens);
@@ -51,6 +53,16 @@ namespace PROYECTO___YaYacc
             lblRuta.Visible = true;
             lblLog.Visible = true;
             
+        }
+
+        private void Input_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
