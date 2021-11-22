@@ -21,6 +21,7 @@ namespace PROYECTO___YaYacc.YaYacc
             Id = "";
             Elements = new List<string>();
             IsAnalyzed = false;
+            LookAHead = new List<string>();
         }
 
         public Rule DeepClone(Rule obj)

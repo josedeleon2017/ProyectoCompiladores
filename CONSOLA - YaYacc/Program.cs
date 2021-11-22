@@ -19,15 +19,17 @@ namespace CONSOLA___YaYacc
             //Entrega 3
             //Con la entidad gramatica validada hacer un LALR que valide el ingreso de palabras en consola
             Console.WriteLine("YAYACC");
-           // Console.ReadLine();
-            var CurrentDirectory = Directory.GetCurrentDirectory();
-            int posBinDirectory = CurrentDirectory.IndexOf("CONSOLA - YaYacc", 0);
-            string RelativeDirectory = CurrentDirectory.Substring(0, posBinDirectory);
-            RelativeDirectory += "PROYECTO - YaYacc";
-            string jsonPath = $"{RelativeDirectory}\\grammar.json";
+            // Console.ReadLine();
+            //var CurrentDirectory = Directory.GetCurrentDirectory();
+            //int posBinDirectory = CurrentDirectory.IndexOf("CONSOLA - YaYacc", 0);
+            //string RelativeDirectory = CurrentDirectory.Substring(0, posBinDirectory);
+            //RelativeDirectory += "PROYECTO - YaYacc";
+            //string jsonPath = $"{RelativeDirectory}\\grammar.json";
 
-            string jsonGrammar = File.ReadAllText(jsonPath);
-            Grammar deserializedGrammar = JsonConvert.DeserializeObject<Grammar>(jsonGrammar);
+            //string jsonGrammar = File.ReadAllText(jsonPath);
+            //Grammar deserializedGrammar = JsonConvert.DeserializeObject<Grammar>(jsonGrammar);
+
+            Grammar deserializedGrammar = new Grammar(@"C:\Users\kevin\Desktop\ProyectoCompiladores\PRUEBAS - YaYacc\grammar4.y");
             /* 
             S' -> S
             S -> S + T

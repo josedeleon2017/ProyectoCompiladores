@@ -35,6 +35,7 @@ namespace PROYECTO___YaYacc.YaYacc
             foreach (var ruleLine in ruleLines)
             {
                 var ruleParts = ruleLine.Split(':');
+                
 
                 if (!ruleParts[1].Contains("|"))
                 {
@@ -62,6 +63,11 @@ namespace PROYECTO___YaYacc.YaYacc
 
             newRule.Id = idRule.Trim();
 
+            if (NonTerminals.Count == 0)
+            {
+                NonTerminals.Add(newRule.Id);
+            }
+
             foreach (var element in elements)
             {
                 if (element != "" && element != ";")
@@ -79,10 +85,7 @@ namespace PROYECTO___YaYacc.YaYacc
                         {
                             NonTerminals.Add(nextToken.Value);
                         }
-                        else
-                        {
-                            NonTerminals.Add(newRule.Id);
-                        }
+                       
                     }
                 }
 
