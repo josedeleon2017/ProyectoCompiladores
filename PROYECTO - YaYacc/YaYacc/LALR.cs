@@ -26,6 +26,7 @@ namespace PROYECTO___YaYacc.YaYacc
         {
             try
             {
+                RestartConfiguration();
                 string CurrentToken = Tokens.Dequeue();
                 bool endValidation = false;
                 while (!endValidation)
@@ -80,6 +81,14 @@ namespace PROYECTO___YaYacc.YaYacc
             return GrammarRules[pos];
         }
 
+        public void RestartConfiguration()
+        {
+            PrincipalStack = new Stack<string>();
+            StatesStack = new Stack<string>();
+
+            PrincipalStack.Push("#");
+            StatesStack.Push("0");
+        }
         public void GenerateTable()
         {
             GenerateInitialState();
@@ -438,9 +447,6 @@ namespace PROYECTO___YaYacc.YaYacc
             Grammar = g;
             Grammar.Terminals.Add("$");
             NextId = 0;
-
-            PrincipalStack.Push("#");
-            StatesStack.Push("0");
 
             SetGrammarRule();
             CreateTableFirst();
