@@ -610,5 +610,168 @@ namespace PROYECTO___YaYacc.YaYacc
                 }
             }
         }
+        public bool LookaHead(Rule ParentRule, List<Rule> RulesDerived)
+        {
+            //S' → .S
+
+            //     01null
+            int pointPosition = ParentRule.Elements.IndexOf(".");
+            //ponintposition = 0
+            string derivated = ParentRule.Elements[pointPosition + 1];
+            //derivated = 1
+            if (Grammar.Terminals.Contains(derivated))
+            {
+                return false;
+            }
+            else if (Grammar.NonTerminals.Contains(derivated))
+            {
+                //evelauar la possion de derived + 1
+                if ((ParentRule.Elements.IndexOf(derivated) + 1) == ParentRule.Elements.Count)
+                {
+                    //El siguiente es el final de la regla y propaga a los reglas derivadas todos sus lookahead
+                    foreach (var Rules in RulesDerived)
+                    {
+                        foreach (var LookaHead in ParentRule.LookAHead)
+                        {
+                            Rules.LookAHead.Add(LookaHead);
+                        }
+                    }
+                }
+                else
+                {
+                    List<string> FirstNext = new List<string>();
+                    string keyNext = ParentRule.Elements[ParentRule.Elements.IndexOf(derivated) + 1];
+                    if (derivated == ParentRule.Id)
+                    {
+                        if (!isTerminal(keyNext))
+                        {
+                            FirstNext = FirstTable[keyNext];
+                            foreach (var LookaHead in FirstNext)
+                            {
+                                if (ParentRule.LookAHead.Contains(LookaHead))
+                                {
+                                    ParentRule.LookAHead.Add(LookaHead);
+                                }
+
+                            }
+                            foreach (var RuleDerived in RulesDerived)
+                            {
+                                foreach (var LookaHead in ParentRule.LookAHead)
+                                {
+                                    if (!RuleDerived.LookAHead.Contains(LookaHead))
+                                    {
+                                        RuleDerived.LookAHead.Add(LookaHead);
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            foreach (var RuleDerived in RulesDerived)
+                            {
+                                if (!RuleDerived.LookAHead.Contains(keyNext))
+                                {
+                                    RuleDerived.LookAHead.Add(keyNext);
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (isTerminal(keyNext))
+                        {
+                            foreach (var RuleDerived in RulesDerived)
+                            {
+                                if (!RuleDerived.LookAHead.Contains(keyNext))
+                                {
+                                    RuleDerived.LookAHead.Add(keyNext);
+                                }
+                            }
+                        }
+                        else
+                        {
+                            FirstNext = FirstTable[keyNext];
+                            foreach (var RuleDerived in RulesDerived)
+                            {
+                                foreach (var LookaHead in FirstNext)
+                                {
+                                    if (!RuleDerived.LookAHead.Contains(keyNext))
+                                    {
+                                        RuleDerived.LookAHead.Add(LookaHead);
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+            List<string> newLookaHead = new List<string>();
+            foreach (var item in RulesDerived)
+            {
+                pointPosition = item.Elements.IndexOf(".");
+                if (pointPosition + 1 == item.Elements.Count())
+                {
+                    return true;
+                }
+
+                if (pointPosition + 2 < item.Elements.Count())
+                {
+                    string addLookaHead = item.Elements[pointPosition + 2];
+                    if (isTerminal(addLookaHead))
+                    {
+                        newLookaHead.Add(addLookaHead);
+                    }
+                }
+            }
+            foreach (var ruleEdit in RulesDerived)
+            {
+                foreach (var newlook in newLookaHead)
+                {
+                    if (!ruleEdit.LookAHead.Contains(newlook))
+                    {
+                        ruleEdit.LookAHead.Add(newlook);
+                    }
+                }
+            }
+
+            return true;
+        }
+        private bool isTerminal(string value)
+        {
+            if (Grammar.Terminals.Contains(value))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+        private List<Rule> toAddLookaHead(State S1, Rule r)
+        {
+            List<Rule> result;
+            int pointPosition = r.Elements.IndexOf(".");
+            if (pointPosition == r.Elements.Count - 1)
+            {
+                return null;
+            }
+            else
+            {
+                //S' → .S'
+                if (r.Id == r.Elements[pointPosition + 1])
+                    return null;
+                result = new List<Rule>();
+                string ruleToExpand = r.Elements[pointPosition + 1];
+                foreach (var item in S1.Items)
+                {
+                    if (item.Id == ruleToExpand)
+                    {
+                        result.Add(item);
+                    }
+                }
+                return result;
+            }
+        }
     }
 }
