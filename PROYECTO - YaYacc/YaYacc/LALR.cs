@@ -8,6 +8,7 @@ namespace PROYECTO___YaYacc.YaYacc
 {
     public class LALR
     {
+        //Generacion del parser
         private Dictionary<string, string> LRTable = new Dictionary<string, string>();
         public List<State> _LALR = new List<State>();
         public Grammar Grammar { get; set; }
@@ -16,6 +17,68 @@ namespace PROYECTO___YaYacc.YaYacc
         public int DuplicateStateId;
         private Dictionary<string, List<string>> FirstTable = new Dictionary<string, List<string>>();
 
+        //Validacion de expresion
+        private Stack<string> StatesStack = new Stack<string>();
+        private Stack<string> PrincipalStack = new Stack<string>();
+        private List<List<string>> GrammarRules = new List<List<string>>();
+
+        public bool ValidateExpression(Queue<string> Tokens)
+        {
+            try
+            {
+                string CurrentToken = Tokens.Dequeue();
+                bool endValidation = false;
+                while (!endValidation)
+                {
+                    string action = GetAction(StatesStack.Peek(), CurrentToken);
+                    if (action == "-1") endValidation = true;
+                    if (action[0] == 'S')
+                    {
+                        StatesStack.Push(action.Substring(1));
+                        PrincipalStack.Push(CurrentToken);
+
+                        //Obtiene el nuevo token
+                        CurrentToken = Tokens.Dequeue();
+                    }
+                    else if (action[0] == 'R')
+                    {
+                        List<string> rule = GetRule(action.Substring(1));
+                        for (int i = rule.Count - 1; i > 0; i--)
+                        {
+                            if (rule[i] == PrincipalStack.Peek())
+                            {
+                                PrincipalStack.Pop();
+                                StatesStack.Pop();
+                            }
+                        }
+                        PrincipalStack.Push(Convert.ToString(rule[0]));
+                        StatesStack.Push(GetAction(StatesStack.Peek(), PrincipalStack.Peek()));
+                    }
+                    else if (action == "ACCEPTED")
+                    {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public string GetAction(string state, string tokenValue)
+        {
+            string key = $"{state},{tokenValue}";
+            if (!LRTable.ContainsKey(key)) return "-1";
+            return LRTable[key];
+        }
+
+        public List<string> GetRule(string rule)
+        {
+            int pos = Convert.ToInt32(rule);
+            return GrammarRules[pos];
+        }
 
         public void GenerateTable()
         {
@@ -375,10 +438,36 @@ namespace PROYECTO___YaYacc.YaYacc
             Grammar = g;
             Grammar.Terminals.Add("$");
             NextId = 0;
+
+            PrincipalStack.Push("#");
+            StatesStack.Push("0");
+
+            SetGrammarRule();
             CreateTableFirst();
         }
 
-
+        public void SetGrammarRule()
+        {
+            //Agrega en el formato la primera regla
+            List<string> initialRule = new List<string>();
+            initialRule.Add(Grammar.InitialRule.Id);
+            for (int i = 0; i < Grammar.InitialRule.Elements.Count; i++)
+            {
+                initialRule.Add(Grammar.InitialRule.Elements[i]);
+            }
+            GrammarRules.Add(initialRule);
+            //Agrega en el formato todas las demas reglas
+            for (int i = 0; i < Grammar.DictRules.Count; i++)
+            {
+                List<string> currentRule = new List<string>();
+                currentRule.Add(Grammar.DictRules[i].Id);
+                for (int j = 0; j < Grammar.DictRules[i].Elements.Count; j++)
+                {
+                    currentRule.Add(Grammar.DictRules[i].Elements[j]);
+                }
+                GrammarRules.Add(currentRule);
+            }
+        }
         public void CreateTableFirst()
         {
             string id = Grammar.InitialRule.Id;
