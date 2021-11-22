@@ -109,6 +109,79 @@ namespace PROYECTO___YaYacc.YaYacc
             }
 
             //Calcular los reduces y ahi termina
+            for (int i = 0; i < _LALR.Count; i++)
+            {
+                State currentState = _LALR[i];
+                for (int j = 0; j < currentState.Items.Count; j++)
+                {
+                    Rule currentRule = currentState.Items[j];
+                    if (currentRule.Elements[currentRule.Elements.Count - 1] == ".")
+                    {
+                        AddAsociateReduce(currentRule, currentState.Id);
+                    }
+                }
+            }
+        }
+
+        public void AddAsociateReduce(Rule r, int stateNumber)
+        {
+            //Recorre todos los no terminales -> Despues cambiar por la list del LookAHead
+            for (int i = 0; i < Grammar.Terminals.Count; i++)
+            {
+                string indexRule = GetIndexRule(r);
+                if (!LRTable.ContainsKey($"{stateNumber},{Grammar.Terminals[i]}"))
+                {
+                    if (indexRule == "ACCEPTED" && Grammar.Terminals[i] == "$")
+                    {
+                        LRTable.Add($"{stateNumber},{Grammar.Terminals[i]}", $"{indexRule}");
+                    }
+                    else if (indexRule != "ACCEPTED")
+                    {
+                        LRTable.Add($"{stateNumber},{Grammar.Terminals[i]}", $"R{indexRule}");
+                    }
+                }
+            }
+        }
+
+        public string GetIndexRule(Rule r)
+        {
+            //Evalua si es la regla inicial
+            if (r.Elements.Count - 1 == Grammar.InitialRule.Elements.Count)
+            {
+                bool isEquals = true;
+                for (int i = 0; i < r.Elements.Count - 1; i++)
+                {
+                    if (r.Elements[i] != Grammar.InitialRule.Elements[i])
+                    {
+                        isEquals = false;
+                    }
+                }
+                if (isEquals)
+                {
+                    return "ACCEPTED";
+                }
+            }
+
+            //Evalua si es alguna de los otras reglas
+            for (int i = 0; i < Grammar.DictRules.Count; i++)
+            {
+                if (r.Elements.Count - 1 == Grammar.DictRules[i].Elements.Count)
+                {
+                    bool isEquals = true;
+                    for (int j = 0; j < r.Elements.Count - 1; j++)
+                    {
+                        if (r.Elements[j] != Grammar.DictRules[i].Elements[j])
+                        {
+                            isEquals = false;
+                        }
+                    }
+                    if (isEquals)
+                    {
+                        return Convert.ToString(i + 1);
+                    }
+                }
+            }
+            return "";
         }
 
         public bool ExistState(State s)
@@ -184,7 +257,8 @@ namespace PROYECTO___YaYacc.YaYacc
 
             //Agrega la primera regla con punto al inicio
             Rule InitialRule = Grammar.InitialRule;
-            S0.Items.Add(AddPoint(InitialRule));
+            Rule ruleToAdd = InitialRule.DeepClone(InitialRule);
+            S0.Items.Add(AddPoint(ruleToAdd));
 
             //Sacar el LookAHead -> $
 
@@ -299,6 +373,7 @@ namespace PROYECTO___YaYacc.YaYacc
         public LALR(Grammar g)
         {
             Grammar = g;
+            Grammar.Terminals.Add("$");
             NextId = 0;
             CreateTableFirst();
         }

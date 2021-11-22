@@ -65,3 +65,16 @@ E:\U\Compiladores\Proyecto 2.0\CONSOLA - YaYacc\obj\Debug\CONSOLA - YaYacc.cspro
 E:\U\Compiladores\Proyecto 2.0\CONSOLA - YaYacc\obj\Debug\CONSOLA - YaYacc.csproj.CopyComplete
 E:\U\Compiladores\Proyecto 2.0\CONSOLA - YaYacc\obj\Debug\CONSOLA - YaYacc.exe
 E:\U\Compiladores\Proyecto 2.0\CONSOLA - YaYacc\obj\Debug\CONSOLA - YaYacc.pdb
+C:\Users\José De León\Desktop\compisLunes\ProyectoCompiladores\CONSOLA - YaYacc\bin\Debug\CONSOLA - YaYacc.exe.config
+C:\Users\José De León\Desktop\compisLunes\ProyectoCompiladores\CONSOLA - YaYacc\bin\Debug\CONSOLA - YaYacc.exe
+C:\Users\José De León\Desktop\compisLunes\ProyectoCompiladores\CONSOLA - YaYacc\bin\Debug\CONSOLA - YaYacc.pdb
+C:\Users\José De León\Desktop\compisLunes\ProyectoCompiladores\CONSOLA - YaYacc\bin\Debug\Newtonsoft.Json.dll
+C:\Users\José De León\Desktop\compisLunes\ProyectoCompiladores\CONSOLA - YaYacc\bin\Debug\PROYECTO - YaYacc.exe
+C:\Users\José De León\Desktop\compisLunes\ProyectoCompiladores\CONSOLA - YaYacc\bin\Debug\PROYECTO - YaYacc.pdb
+C:\Users\José De León\Desktop\compisLunes\ProyectoCompiladores\CONSOLA - YaYacc\bin\Debug\PROYECTO - YaYacc.exe.config
+C:\Users\José De León\Desktop\compisLunes\ProyectoCompiladores\CONSOLA - YaYacc\bin\Debug\Newtonsoft.Json.xml
+C:\Users\José De León\Desktop\compisLunes\ProyectoCompiladores\CONSOLA - YaYacc\obj\Debug\CONSOLA - YaYacc.csprojAssemblyReference.cache
+C:\Users\José De León\Desktop\compisLunes\ProyectoCompiladores\CONSOLA - YaYacc\obj\Debug\CONSOLA - YaYacc.csproj.CoreCompileInputs.cache
+C:\Users\José De León\Desktop\compisLunes\ProyectoCompiladores\CONSOLA - YaYacc\obj\Debug\CONSOLA - YaYacc.csproj.CopyComplete
+C:\Users\José De León\Desktop\compisLunes\ProyectoCompiladores\CONSOLA - YaYacc\obj\Debug\CONSOLA - YaYacc.exe
+C:\Users\José De León\Desktop\compisLunes\ProyectoCompiladores\CONSOLA - YaYacc\obj\Debug\CONSOLA - YaYacc.pdb
