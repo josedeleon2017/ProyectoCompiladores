@@ -14,7 +14,7 @@ namespace PROYECTO___YaYacc.YaYacc
         public int NextId;
         public bool IsComplete;
         public int DuplicateStateId;
-
+        private Dictionary<string, List<string>> FirstTable = new Dictionary<string, List<string>>();
 
 
         public void GenerateTable()
@@ -300,6 +300,78 @@ namespace PROYECTO___YaYacc.YaYacc
         {
             Grammar = g;
             NextId = 0;
+            CreateTableFirst();
+        }
+
+
+        public void CreateTableFirst()
+        {
+            string id = Grammar.InitialRule.Id;
+            First(Grammar.InitialRule.Elements[0]);
+            var values = FirstTable[Grammar.InitialRule.Elements[0]];
+            FirstTable.Add(id, values);
+            foreach (var item in Grammar.DictRules)
+            {
+                First(item.Id);
+            }
+        }
+
+        public void First(string ruleID)
+        {
+            List<Rule> temporalRule = new List<Rule>();
+            foreach (var rule in Grammar.DictRules)
+            {
+                if (rule.Id == ruleID)
+                {
+                    temporalRule.Add(rule);
+                }
+            }
+            foreach (var rule in temporalRule)
+            {
+                if (Grammar.Terminals.Contains(rule.Elements[0]))
+                {
+                    //ID, lista de strings
+                    if (FirstTable.ContainsKey(ruleID))
+                    {
+                        var values = FirstTable[ruleID];
+                        if (!values.Contains(rule.Elements[0]))
+                        {
+                            values.Add(rule.Elements[0]);
+                        }
+                        FirstTable[ruleID] = values;
+                    }
+                    else
+                    {
+                        List<string> Values = new List<string>();
+                        if (!Values.Contains(rule.Elements[0]))
+                        {
+                            Values.Add(rule.Elements[0]);
+                        }
+                        FirstTable.Add(ruleID, Values);
+                    }
+                }
+                else if (Grammar.NonTerminals.Contains(rule.Elements[0]))
+                {
+                    if (ruleID != rule.Elements[0])
+                    {
+                        First(rule.Elements[0]);
+                        if (!FirstTable.ContainsKey(ruleID))
+                        {
+                            List<string> Values = new List<string>();
+                            FirstTable.Add(ruleID, Values);
+                        }
+                        var values = FirstTable[ruleID];
+                        foreach (var item in FirstTable[rule.Elements[0]])
+                        {
+                            if (!values.Contains(item))
+                            {
+                                values.Add(item);
+                            }
+                        }
+                        FirstTable[ruleID] = values;
+                    }
+                }
+            }
         }
     }
 }
