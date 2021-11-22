@@ -38,3 +38,6 @@ C:\Users\José De León\Desktop\Compis\ProyectoCompiladores\PROYECTO - YaYacc\ob
 C:\Users\José De León\Desktop\Compis\ProyectoCompiladores\PROYECTO - YaYacc\obj\Debug\PROYECTO - YaYacc.pdb
 C:\Users\José De León\Desktop\Compis\ProyectoCompiladores\PROYECTO - YaYacc\obj\Debug\PROYECTO - YaYacc.csprojAssemblyReference.cache
 C:\Users\kevin\Desktop\ProyectoCompiladores\PROYECTO - YaYacc\obj\Debug\PROYECTO - YaYacc.csproj.AssemblyReference.cache
+C:\Users\kevin\Desktop\ProyectoCompiladores\PROYECTO - YaYacc\bin\Debug\Newtonsoft.Json.dll
+C:\Users\kevin\Desktop\ProyectoCompiladores\PROYECTO - YaYacc\bin\Debug\Newtonsoft.Json.xml
+C:\Users\kevin\Desktop\ProyectoCompiladores\PROYECTO - YaYacc\obj\Debug\PROYECTO - YaYacc.csproj.CopyComplete

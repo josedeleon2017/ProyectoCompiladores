@@ -7,7 +7,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using PROYECTO___YaYacc.YaYacc;
-
+using Newtonsoft.Json;
 
 namespace CONSOLA___YaYacc
 {
@@ -15,27 +15,19 @@ namespace CONSOLA___YaYacc
     {
         static void Main(string[] args)
         {
+            
             //Entrega 3
             //Con la entidad gramatica validada hacer un LALR que valide el ingreso de palabras en consola
             Console.WriteLine("YAYACC");
+            Console.ReadLine();
+            var CurrentDirectory = Directory.GetCurrentDirectory();
+            int posBinDirectory = CurrentDirectory.IndexOf("CONSOLA - YaYacc", 0);
+            string RelativeDirectory = CurrentDirectory.Substring(0, posBinDirectory);
+            RelativeDirectory += "PROYECTO - YaYacc";
+            string jsonPath = $"{RelativeDirectory}\\grammar.json";
 
-
-            Rule r0 = new Rule() { Id = "S'", Elements = new List<string>() { "S" } };
-            Rule r1 = new Rule() { Id = "S", Elements = new List<string>() { "S", "+", "T" } };
-            Rule r2 = new Rule() { Id = "S", Elements = new List<string>() { "T" } };
-            Rule r3 = new Rule() { Id = "T", Elements = new List<string>() { "T", "*", "F" } };
-            Rule r4 = new Rule() { Id = "T", Elements = new List<string>() { "F" } };
-            Rule r5 = new Rule() { Id = "F", Elements = new List<string>() { "(", "S", ")" } };
-            Rule r6 = new Rule() { Id = "F", Elements = new List<string>() { "num" } };
-
-            Grammar objGramar = new Grammar("C:\\Users\\kevin\\Desktop\\ProyectoCompiladores\\PRUEBAS - YaYacc\\grammar4.y");
-
-
-
-            Grammar g = new Grammar() { InitialRule = r0, DictRules = new List<Rule>() { r1, r2, r3, r4, r5, r6 } };
-            g.Terminals = new List<string>() { "+", "*", "(", ")", "num" };
-            g.NonTerminals = new List<string>() { "S'", "S", "T", "F" };
-
+            string jsonGrammar = File.ReadAllText(jsonPath);
+            Grammar deserializedGrammar = JsonConvert.DeserializeObject<Grammar>(jsonGrammar);
             /* 
             S' -> S
             S -> S + T
@@ -46,7 +38,7 @@ namespace CONSOLA___YaYacc
             F -> num      
              */
 
-            LALR p = new LALR(g);
+            LALR p = new LALR(deserializedGrammar);
             p.GenerateTable();
 
             Console.ReadLine();

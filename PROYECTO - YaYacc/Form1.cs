@@ -1,4 +1,5 @@
-﻿using PROYECTO___YaYacc.YaYacc;
+﻿using Newtonsoft.Json;
+using PROYECTO___YaYacc.YaYacc;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -51,6 +52,25 @@ namespace PROYECTO___YaYacc
                         lblResult.ForeColor = Color.Green;
                         lblResult.Text = "GRAMÁTICA VÁLIDA";
                         Grammar objGrammar = new Grammar(path);
+
+                        var CurrentDirectory = Directory.GetCurrentDirectory();
+                        int posBinDirectory = CurrentDirectory.IndexOf("bin", 0);
+                        string RelativeDirectory = CurrentDirectory.Substring(0, posBinDirectory);
+
+                        string jsonPath = $"{RelativeDirectory}\\grammar.json";
+                        string jsonGrammar = JsonConvert.SerializeObject(objGrammar);
+
+                        using (FileStream fs = File.Create(jsonPath))
+                        {
+                            byte[] info = new UTF8Encoding(true).GetBytes(jsonGrammar);
+                            fs.Write(info, 0, info.Length);
+                        }
+
+                        int posConsoleDirectory = CurrentDirectory.IndexOf("PROYECTO - YaYacc", 0);
+                        string RelativeCosoleDirectory = CurrentDirectory.Substring(0, posConsoleDirectory) + @"CONSOLA - YaYacc\bin\Debug\CONSOLA - YaYacc.exe";
+
+                        string ruta = RelativeCosoleDirectory;
+                        System.Diagnostics.Process.Start(ruta);
                     }
                     else
                     {
