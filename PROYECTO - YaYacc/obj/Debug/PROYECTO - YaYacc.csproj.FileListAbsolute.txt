@@ -81,3 +81,4 @@ C:\Users\José De León\Desktop\compisLunes\ProyectoCompiladores\PROYECTO - YaYa
 C:\Users\José De León\Desktop\compisLunes\ProyectoCompiladores\PROYECTO - YaYacc\obj\Debug\PROYECTO - YaYacc.pdb
 C:\Users\José De León\Desktop\compisLunes\ProyectoCompiladores\PROYECTO - YaYacc\obj\Debug\PROYECTO___YaYacc.Input.resources
 C:\Users\José De León\Desktop\compisLunes\ProyectoCompiladores\PROYECTO - YaYacc\obj\Debug\PROYECTO - YaYacc.csprojAssemblyReference.cache
+C:\Users\kevin\Desktop\ProyectoCompiladores\PROYECTO - YaYacc\obj\Debug\PROYECTO___YaYacc.Input.resources

@@ -29,6 +29,7 @@ namespace PROYECTO___YaYacc
         private void button1_Click(object sender, EventArgs e)
         {
             string exp = txtInput.Text;
+            exp = exp.Trim();
             string[] t = exp.Split(' ');
 
             Queue<string> tokens = new Queue<string>();

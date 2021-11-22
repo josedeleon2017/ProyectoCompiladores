@@ -61,6 +61,10 @@ namespace PROYECTO___YaYacc.YaYacc
             Token nextToken = new Token();
 
             newRule.Id = idRule.Trim();
+            if (NonTerminals.Count == 0)
+            {
+                NonTerminals.Add(newRule.Id);
+            }
 
             foreach (var element in elements)
             {
@@ -78,10 +82,6 @@ namespace PROYECTO___YaYacc.YaYacc
                         if (NonTerminals.Count > 0)
                         {
                             NonTerminals.Add(nextToken.Value);
-                        }
-                        else
-                        {
-                            NonTerminals.Add(newRule.Id);
                         }
                     }
                 }
