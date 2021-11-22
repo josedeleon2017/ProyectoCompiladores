@@ -62,7 +62,7 @@
             this.lblResult.AutoSize = true;
             this.lblResult.Font = new System.Drawing.Font("Palatino Linotype", 22.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblResult.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
-            this.lblResult.Location = new System.Drawing.Point(189, 258);
+            this.lblResult.Location = new System.Drawing.Point(191, 257);
             this.lblResult.Name = "lblResult";
             this.lblResult.Size = new System.Drawing.Size(37, 51);
             this.lblResult.TabIndex = 2;
@@ -96,11 +96,11 @@
             // 
             this.lblRuta.AutoSize = true;
             this.lblRuta.Font = new System.Drawing.Font("Palatino Linotype", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblRuta.Location = new System.Drawing.Point(301, 334);
+            this.lblRuta.Location = new System.Drawing.Point(254, 334);
             this.lblRuta.Name = "lblRuta";
-            this.lblRuta.Size = new System.Drawing.Size(229, 19);
+            this.lblRuta.Size = new System.Drawing.Size(334, 19);
             this.lblRuta.TabIndex = 5;
-            this.lblRuta.Text = "Ruta: PROYECTO - YaYacc\\log.txt";
+            this.lblRuta.Text = "Ruta: PROYECTO - YaYacc\\Logs\\GrammarLog.txt";
             this.lblRuta.Visible = false;
             // 
             // Form1

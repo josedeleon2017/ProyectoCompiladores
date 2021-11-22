@@ -120,7 +120,7 @@ namespace PROYECTO___YaYacc
             int posBinDirectory = CurrentDirectory.IndexOf("bin",0);
             string RelativeDirectory = CurrentDirectory.Substring(0, posBinDirectory);
 
-            string path = $"{RelativeDirectory}\\log.txt";
+            string path = $"{RelativeDirectory}\\Logs\\GrammarLog.txt";
             using (StreamWriter sw = File.CreateText(path))
             {
                 //Print header

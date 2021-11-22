@@ -67,3 +67,17 @@ E:\U\Compiladores\Proyecto 2.0\PROYECTO - YaYacc\obj\Debug\PROYECTO - YaYacc.csp
 E:\U\Compiladores\Proyecto 2.0\PROYECTO - YaYacc\obj\Debug\PROYECTO - YaYacc.csproj.CopyComplete
 E:\U\Compiladores\Proyecto 2.0\PROYECTO - YaYacc\obj\Debug\PROYECTO - YaYacc.exe
 E:\U\Compiladores\Proyecto 2.0\PROYECTO - YaYacc\obj\Debug\PROYECTO - YaYacc.pdb
+C:\Users\José De León\Desktop\compisLunes\ProyectoCompiladores\PROYECTO - YaYacc\bin\Debug\PROYECTO - YaYacc.exe.config
+C:\Users\José De León\Desktop\compisLunes\ProyectoCompiladores\PROYECTO - YaYacc\bin\Debug\PROYECTO - YaYacc.exe
+C:\Users\José De León\Desktop\compisLunes\ProyectoCompiladores\PROYECTO - YaYacc\bin\Debug\PROYECTO - YaYacc.pdb
+C:\Users\José De León\Desktop\compisLunes\ProyectoCompiladores\PROYECTO - YaYacc\bin\Debug\Newtonsoft.Json.dll
+C:\Users\José De León\Desktop\compisLunes\ProyectoCompiladores\PROYECTO - YaYacc\bin\Debug\Newtonsoft.Json.xml
+C:\Users\José De León\Desktop\compisLunes\ProyectoCompiladores\PROYECTO - YaYacc\obj\Debug\PROYECTO___YaYacc.Form1.resources
+C:\Users\José De León\Desktop\compisLunes\ProyectoCompiladores\PROYECTO - YaYacc\obj\Debug\PROYECTO___YaYacc.Properties.Resources.resources
+C:\Users\José De León\Desktop\compisLunes\ProyectoCompiladores\PROYECTO - YaYacc\obj\Debug\PROYECTO - YaYacc.csproj.GenerateResource.cache
+C:\Users\José De León\Desktop\compisLunes\ProyectoCompiladores\PROYECTO - YaYacc\obj\Debug\PROYECTO - YaYacc.csproj.CoreCompileInputs.cache
+C:\Users\José De León\Desktop\compisLunes\ProyectoCompiladores\PROYECTO - YaYacc\obj\Debug\PROYECTO - YaYacc.csproj.CopyComplete
+C:\Users\José De León\Desktop\compisLunes\ProyectoCompiladores\PROYECTO - YaYacc\obj\Debug\PROYECTO - YaYacc.exe
+C:\Users\José De León\Desktop\compisLunes\ProyectoCompiladores\PROYECTO - YaYacc\obj\Debug\PROYECTO - YaYacc.pdb
+C:\Users\José De León\Desktop\compisLunes\ProyectoCompiladores\PROYECTO - YaYacc\obj\Debug\PROYECTO___YaYacc.Input.resources
+C:\Users\José De León\Desktop\compisLunes\ProyectoCompiladores\PROYECTO - YaYacc\obj\Debug\PROYECTO - YaYacc.csprojAssemblyReference.cache
