@@ -13,6 +13,7 @@ namespace PROYECTO___YaYacc.YaYacc
         public Grammar Grammar { get; set; }
         public int NextId;
         public bool IsComplete;
+        public int DuplicateStateId;
 
 
 
@@ -41,12 +42,12 @@ namespace PROYECTO___YaYacc.YaYacc
                     {
                         string ruleNext = "";
                         int pointPosition = currentState.Items[j].Elements.IndexOf(".");
-                        if (pointPosition != currentState.Items[j].Elements.Count)
+                        if (pointPosition != currentState.Items[j].Elements.Count - 1)
                         {
                             ruleNext = currentState.Items[j].Elements[pointPosition + 1];
                         }
                         if (currentState.Items[j].Elements.Contains(elements[i]) && ruleNext == elements[i])
-                        {                            
+                        {
                             Rule ruleToMove = currentState.Items[j];
                             Rule copyRuleToMove = ruleToMove.DeepClone(ruleToMove);
                             Rule r = MovePoint(copyRuleToMove);
@@ -65,7 +66,8 @@ namespace PROYECTO___YaYacc.YaYacc
                             //Normaliza todas las nuevas reglas a agregar
                             for (int k = 0; k < rulesToAdd.Count; k++)
                             {
-                                Rule ruleFormat = AddPoint(rulesToAdd[k]);
+                                Rule ruleToAddCopy = rulesToAdd[k].DeepClone(rulesToAdd[k]);
+                                Rule ruleFormat = AddPoint(ruleToAddCopy);
 
                                 //Sacar el LookAHead de las reglas generadas
 
@@ -76,6 +78,16 @@ namespace PROYECTO___YaYacc.YaYacc
 
 
                     //Evaluar si el estado temporal general ya existe
+                    if (!ExistState(currentNewState))
+                    {
+                        _LALR.Add(currentNewState);
+                    }
+                    else
+                    {
+                        ReturnId();
+                        //Busco el estado ya existente para no repertir su creacion
+                        currentNewState = SearchState(DuplicateStateId);
+                    }
 
                     //Si ya existe mando a traer el id de ese estado, su id sirve para redireccionar la accion
 
@@ -91,7 +103,7 @@ namespace PROYECTO___YaYacc.YaYacc
                     {
                         LRTable.Add($"{currentState.Id},{elements[i]}", $"S{currentNewState.Id}");
                     }
-                    
+
                 }
                 _LALR[currentStatePosition].IsComplete = true;
             }
@@ -99,7 +111,53 @@ namespace PROYECTO___YaYacc.YaYacc
             //Calcular los reduces y ahi termina
         }
 
+        public bool ExistState(State s)
+        {
+            for (int i = 0; i < _LALR.Count; i++)
+            {
+                State currentState = _LALR[i];
+                bool CompareS = CompareStates(s, currentState);
+                if (CompareS) return true;
+            }
+            return false;
+        }
 
+        public bool CompareStates(State s1, State s2)
+        {
+            //Evaluo si ambos estados tiene  la misma cantidad de reglas
+            if (s1.Items.Count == s2.Items.Count)
+            {
+                //Evalua si las reglas tienen la misma longitud
+                int rulesQty = s1.Items.Count;
+                for (int i = 0; i < rulesQty; i++)
+                {
+                    if (s1.Items[i].Elements.Count == s2.Items[i].Elements.Count)
+                    {
+                        int ruleLong = s1.Items[i].Elements.Count;
+                        //Recorre todos los elementos de la misma regla
+                        for (int j = 0; j < ruleLong; j++)
+                        {
+                            if (s1.Items[i].Elements[j] != s2.Items[i].Elements[j])
+                            {
+                                return false;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        //Si alguna de las reglas no es del mismo tamaño, la regla no es la misma y por lo tanto tampoco el estado
+                        return false;
+                    }
+                }
+                //Aqui tomar el id del estado
+                DuplicateStateId = s2.Id;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
         public List<string> ElementsToRecognize(State s)
         {
             List<string> result = new List<string>();
@@ -107,7 +165,7 @@ namespace PROYECTO___YaYacc.YaYacc
             {
                 Rule r = s.Items[i];
                 int tempPointPosition = r.Elements.IndexOf(".");
-                if(tempPointPosition != r.Elements.Count)
+                if (tempPointPosition != r.Elements.Count - 1)
                 {
                     string elementToAdd = r.Elements[tempPointPosition + 1];
                     if (!result.Contains(elementToAdd))
@@ -140,17 +198,13 @@ namespace PROYECTO___YaYacc.YaYacc
                     //Normaliza todas las nuevas reglas a agregar
                     for (int j = 0; j < rulesToAdd.Count; j++)
                     {
-                        Rule ruleFormat = AddPoint(rulesToAdd[j]);
+                        Rule ruleToAddCopy = rulesToAdd[j].DeepClone(rulesToAdd[j]);
+                        Rule ruleFormat = AddPoint(ruleToAddCopy);
                         S0.Items.Add(ruleFormat);
                     }
                 }
             }
             _LALR.Add(S0);
-        }
-
-        public Rule GenerateState(Rule r)
-        {
-            return r;
         }
 
         public int GetCurrentState()
@@ -165,17 +219,27 @@ namespace PROYECTO___YaYacc.YaYacc
             }
             return -1;
         }
+
+        public State SearchState(int id)
+        {
+            for (int i = 0; i < _LALR.Count; i++)
+            {
+                if (_LALR[i].Id == id) return _LALR[i];
+            }
+            return null;
+        }
         public List<Rule> SearchDeriviedRules(Rule r)
         {
             if (!r.IsAnalyzed)
             {
                 int pointPosition = r.Elements.IndexOf(".");
-                if (pointPosition == r.Elements.Count || r.Id == r.Elements[pointPosition + 1])
+                if (pointPosition == r.Elements.Count - 1)
                 {
                     return null;
                 }
                 else
                 {
+                    if (r.Id == r.Elements[pointPosition + 1]) return null;
                     List<Rule> result = new List<Rule>();
                     string ruleToExpand = r.Elements[pointPosition + 1];
                     for (int i = 0; i < Grammar.DictRules.Count; i++)
@@ -201,7 +265,7 @@ namespace PROYECTO___YaYacc.YaYacc
         }
         public Rule AddPoint(Rule r)
         {
-            r.Elements.Insert(0,".");
+            r.Elements.Insert(0, ".");
             return r;
         }
         public Rule MovePoint(Rule r)
@@ -209,7 +273,7 @@ namespace PROYECTO___YaYacc.YaYacc
             Rule result = new Rule();
             result.Id = r.Id;
             result.Elements = r.Elements;
-            result.IsAnalyzed = r.IsAnalyzed;
+            result.IsAnalyzed = false;
 
 
             int pointPosition = result.Elements.IndexOf(".");
@@ -224,6 +288,12 @@ namespace PROYECTO___YaYacc.YaYacc
             int id = NextId;
             NextId++;
             return id;
+        }
+
+        public void ReturnId()
+        {
+            NextId--;
+            return;
         }
 
         public LALR(Grammar g)

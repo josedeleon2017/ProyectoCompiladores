@@ -41,3 +41,16 @@ C:\Users\kevin\Desktop\ProyectoCompiladores\PROYECTO - YaYacc\obj\Debug\PROYECTO
 C:\Users\kevin\Desktop\ProyectoCompiladores\PROYECTO - YaYacc\bin\Debug\Newtonsoft.Json.dll
 C:\Users\kevin\Desktop\ProyectoCompiladores\PROYECTO - YaYacc\bin\Debug\Newtonsoft.Json.xml
 C:\Users\kevin\Desktop\ProyectoCompiladores\PROYECTO - YaYacc\obj\Debug\PROYECTO - YaYacc.csproj.CopyComplete
+C:\Users\José De León\Desktop\Nueva carpeta\ProyectoCompiladores\PROYECTO - YaYacc\bin\Debug\PROYECTO - YaYacc.exe.config
+C:\Users\José De León\Desktop\Nueva carpeta\ProyectoCompiladores\PROYECTO - YaYacc\bin\Debug\PROYECTO - YaYacc.exe
+C:\Users\José De León\Desktop\Nueva carpeta\ProyectoCompiladores\PROYECTO - YaYacc\bin\Debug\PROYECTO - YaYacc.pdb
+C:\Users\José De León\Desktop\Nueva carpeta\ProyectoCompiladores\PROYECTO - YaYacc\bin\Debug\Newtonsoft.Json.dll
+C:\Users\José De León\Desktop\Nueva carpeta\ProyectoCompiladores\PROYECTO - YaYacc\bin\Debug\Newtonsoft.Json.xml
+C:\Users\José De León\Desktop\Nueva carpeta\ProyectoCompiladores\PROYECTO - YaYacc\obj\Debug\PROYECTO___YaYacc.Form1.resources
+C:\Users\José De León\Desktop\Nueva carpeta\ProyectoCompiladores\PROYECTO - YaYacc\obj\Debug\PROYECTO___YaYacc.Properties.Resources.resources
+C:\Users\José De León\Desktop\Nueva carpeta\ProyectoCompiladores\PROYECTO - YaYacc\obj\Debug\PROYECTO - YaYacc.csproj.GenerateResource.cache
+C:\Users\José De León\Desktop\Nueva carpeta\ProyectoCompiladores\PROYECTO - YaYacc\obj\Debug\PROYECTO - YaYacc.csproj.CoreCompileInputs.cache
+C:\Users\José De León\Desktop\Nueva carpeta\ProyectoCompiladores\PROYECTO - YaYacc\obj\Debug\PROYECTO - YaYacc.csproj.CopyComplete
+C:\Users\José De León\Desktop\Nueva carpeta\ProyectoCompiladores\PROYECTO - YaYacc\obj\Debug\PROYECTO - YaYacc.exe
+C:\Users\José De León\Desktop\Nueva carpeta\ProyectoCompiladores\PROYECTO - YaYacc\obj\Debug\PROYECTO - YaYacc.pdb
+C:\Users\José De León\Desktop\Nueva carpeta\ProyectoCompiladores\PROYECTO - YaYacc\obj\Debug\PROYECTO - YaYacc.csprojAssemblyReference.cache

@@ -19,7 +19,7 @@ namespace CONSOLA___YaYacc
             //Entrega 3
             //Con la entidad gramatica validada hacer un LALR que valide el ingreso de palabras en consola
             Console.WriteLine("YAYACC");
-            Console.ReadLine();
+           // Console.ReadLine();
             var CurrentDirectory = Directory.GetCurrentDirectory();
             int posBinDirectory = CurrentDirectory.IndexOf("CONSOLA - YaYacc", 0);
             string RelativeDirectory = CurrentDirectory.Substring(0, posBinDirectory);
