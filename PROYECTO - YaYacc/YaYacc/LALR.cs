@@ -60,7 +60,7 @@ namespace PROYECTO___YaYacc.YaYacc
                     for (int j = 0; j < currentNewState.Items.Count; j++)
                     {
                         List<Rule> rulesToAdd = SearchDeriviedRules(currentNewState.Items[j]);
-                        LookaHead(currentNewState.Items[i], rulesToAdd);
+                        //LookaHead(currentNewState.Items[i], rulesToAdd);
                         currentNewState.Items[j].IsAnalyzed = true;
                         if (rulesToAdd != null)
                         {
@@ -355,8 +355,8 @@ namespace PROYECTO___YaYacc.YaYacc
                         Rule ruleFormat = AddPoint(ruleToAddCopy);
                         S0.Items.Add(ruleFormat);
                     }
-                    rulesToAdd = toAddLookaHead(S0, S0.Items[i]);
-                    LookaHead(S0.Items[i], rulesToAdd);
+                    //rulesToAdd = toAddLookaHead(S0, S0.Items[i]);
+                    //LookaHead(S0.Items[i], rulesToAdd);
                 }
                 S0.Items[i].IsAnalyzed = true;
             }
