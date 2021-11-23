@@ -82,3 +82,17 @@ C:\Users\José De León\Desktop\compisLunes\ProyectoCompiladores\PROYECTO - YaYa
 C:\Users\José De León\Desktop\compisLunes\ProyectoCompiladores\PROYECTO - YaYacc\obj\Debug\PROYECTO___YaYacc.Input.resources
 C:\Users\José De León\Desktop\compisLunes\ProyectoCompiladores\PROYECTO - YaYacc\obj\Debug\PROYECTO - YaYacc.csprojAssemblyReference.cache
 C:\Users\kevin\Desktop\ProyectoCompiladores\PROYECTO - YaYacc\obj\Debug\PROYECTO___YaYacc.Input.resources
+C:\Users\José De León\Desktop\FinalCompis\ProyectoCompiladores\PROYECTO - YaYacc\bin\Debug\PROYECTO - YaYacc.exe.config
+C:\Users\José De León\Desktop\FinalCompis\ProyectoCompiladores\PROYECTO - YaYacc\bin\Debug\PROYECTO - YaYacc.exe
+C:\Users\José De León\Desktop\FinalCompis\ProyectoCompiladores\PROYECTO - YaYacc\bin\Debug\PROYECTO - YaYacc.pdb
+C:\Users\José De León\Desktop\FinalCompis\ProyectoCompiladores\PROYECTO - YaYacc\bin\Debug\Newtonsoft.Json.dll
+C:\Users\José De León\Desktop\FinalCompis\ProyectoCompiladores\PROYECTO - YaYacc\bin\Debug\Newtonsoft.Json.xml
+C:\Users\José De León\Desktop\FinalCompis\ProyectoCompiladores\PROYECTO - YaYacc\obj\Debug\PROYECTO - YaYacc.csprojAssemblyReference.cache
+C:\Users\José De León\Desktop\FinalCompis\ProyectoCompiladores\PROYECTO - YaYacc\obj\Debug\PROYECTO___YaYacc.Form1.resources
+C:\Users\José De León\Desktop\FinalCompis\ProyectoCompiladores\PROYECTO - YaYacc\obj\Debug\PROYECTO___YaYacc.Input.resources
+C:\Users\José De León\Desktop\FinalCompis\ProyectoCompiladores\PROYECTO - YaYacc\obj\Debug\PROYECTO___YaYacc.Properties.Resources.resources
+C:\Users\José De León\Desktop\FinalCompis\ProyectoCompiladores\PROYECTO - YaYacc\obj\Debug\PROYECTO - YaYacc.csproj.GenerateResource.cache
+C:\Users\José De León\Desktop\FinalCompis\ProyectoCompiladores\PROYECTO - YaYacc\obj\Debug\PROYECTO - YaYacc.csproj.CoreCompileInputs.cache
+C:\Users\José De León\Desktop\FinalCompis\ProyectoCompiladores\PROYECTO - YaYacc\obj\Debug\PROYECTO - YaYacc.csproj.CopyComplete
+C:\Users\José De León\Desktop\FinalCompis\ProyectoCompiladores\PROYECTO - YaYacc\obj\Debug\PROYECTO - YaYacc.exe
+C:\Users\José De León\Desktop\FinalCompis\ProyectoCompiladores\PROYECTO - YaYacc\obj\Debug\PROYECTO - YaYacc.pdb

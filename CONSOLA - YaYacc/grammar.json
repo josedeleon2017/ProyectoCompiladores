@@ -1,1 +1,0 @@
-{"InitialRule":{"Id":"S'","Elements":["S"],"IsAnalyzed":false,"LookAHead":null},"DictRules":[{"Id":"S","Elements":["+","S","S"],"IsAnalyzed":false,"LookAHead":null},{"Id":"S","Elements":["*","S","S"],"IsAnalyzed":false,"LookAHead":null},{"Id":"S","Elements":["a"],"IsAnalyzed":false,"LookAHead":null}],"Terminals":["+","*","a"],"NonTerminals":["S'","S"]}

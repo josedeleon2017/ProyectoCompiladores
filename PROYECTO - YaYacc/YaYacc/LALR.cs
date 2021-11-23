@@ -196,6 +196,7 @@ namespace PROYECTO___YaYacc.YaYacc
 
                     //Expandir las reglas del nuevo estado si es necesario
                     //Valida si el punto genera mas reglas
+
                     for (int j = 0; j < currentNewState.Items.Count; j++)
                     {
                         List<Rule> rulesToAdd = SearchDeriviedRules(currentNewState.Items[j]);
